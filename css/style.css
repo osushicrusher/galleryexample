@@ -1,0 +1,118 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.wrapper {
+    background-color: cadetblue;
+    font-size: 14px;
+    padding: .5em;
+}
+
+.header {
+    background-color: darkgrey;
+    display: flex;
+    justify-content: space-around;
+}
+
+.heading-primary {
+    background-color: darkkhaki;
+}
+
+.heading-secondary {
+    font-size: .8em;
+}
+
+.nav-lists {
+    background-color: coral;
+    display: flex;
+    padding: 8px;
+}
+
+.nav-list {
+    background-color: deeppink;
+    list-style: none;
+}
+
+.nav-list:not(:last-child) {
+    margin-right: 1em;
+}
+
+main {
+    background-color: ghostwhite;
+    margin-top: 1em;
+    padding: .5em;
+}
+
+.gallery-items {
+    background-color: aqua;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 1em;
+    padding: .5em;
+}
+
+.gallery-item {
+    background-color: blueviolet;
+    margin-top: 1em;
+    width: calc((100% - (2em * 1)) / 2);
+}
+
+.item-link {
+    color: #545454;
+    text-decoration: none;
+}
+
+.img-box {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 20vh;
+    width: 100%;
+}
+
+.gallery-upload {
+    background-color: dodgerblue;
+    padding: 1em;
+}
+
+.gallery-upload input[type="text"] {
+    padding: .5em 1em;
+}
+
+.gallery-upload p:not(:first-child), .gallery-upload button{
+    margin-top: 1em;
+}
+
+
+@media screen and (max-width: 767px) {
+    .gallery-item:nth-child(2n+1) {
+        margin-right: 2em;
+    }
+}
+
+@media screen and (min-width: 768px) {
+
+    .wrapper {
+        font-size: 18px;
+    }
+
+    .gallery-item {
+        margin-left: 1em;
+        width: calc((100% - (2em * 2)) / 3);
+    }
+
+}
+
+@media screen and (min-width: 1024px) {
+
+    .wrapper {
+        font-size: 22px;
+    }
+
+    .gallery-item {
+        width: calc((100% - (2em * 2)) / 3);
+    }
+}
