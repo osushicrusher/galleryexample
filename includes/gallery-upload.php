@@ -41,24 +41,40 @@
                         header("Location: ../index.php?upload=empty");
                         exit();
                     } else {
+                        // SQL文を設定
                         $sql = "SELECT * FROM gallery;";
-                        $stmt = mysqli_stmt_init($conn);
-                        if (!mysqli_stmt_prepare($stmt, $sql)) {
+                        // SQL文を実行する準備
+                        $stmt = $dbh->prepare($sql);
+                        
+                        if (!$stmt) {
                             echo "SQL文が無効です";
                         } else {
-                            mysqli_stmt_execute($stmt);
-                            $result = mysqli_stmt_get_result($stmt);
-                            $rowCount = mysqli_num_rows($result);
+                            // statementの実行
+                            $stmt->execute();
+                            // データの取得
+                            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+                            // 結果セットの行の数を返す
+                            $rowCount = mysqli_stmt_num_rows($result);
+                            // 数を合わせるため１を足す
                             $setImageOrder = $rowCount + 1;
-
+                            // SQL文の準備
                             $sql = "INSERT INTO gallery (titleGallery, descGallery, imgFullNameGallery, orderGallery) VALUES (?, ?, ?, ?);";
 
-                            if (!mysqli_stmt_prepare($stmt, $sql)) {
+                            if (!$stmt) {
                                 echo "SQLのステートメントが無効です";
                             } else {
-                                mysqli_stmt_bind_param($stmt, "ssss", $imageTitle, $imageDesc, $imageFullName, $setImageOrder);
-                                mysqli_stmt_execute($stmt);
+                                // SQL文を実行する準備
+                                $stmt = $dbh->prepare($sql);
+                                // 値をバインドする
+                                $stmt->bindValue(1, $imageTitle);
+                                $stmt->bindValue(2, $imageDesc);
+                                $stmt->bindValue(3, $imageFullName);
+                                $stmt->bindValue(4, (int)$setImageOrder, PDO::PARAM_INT);
 
+                                // statementの実行
+                                $stmt->execute();
+
+                                // ファイルの保存場所の変更
                                 move_uploaded_file($fileTempName, $fileDestination);
 
                                 header("Location: ../index.php?upload=success");

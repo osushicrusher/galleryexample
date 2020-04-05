@@ -39,21 +39,35 @@
 
                 include_once 'includes/dbh.php';
 
+                // SQL文を設定
                 $sql = "SELECT * FROM gallery ORDER BY orderGallery DESC";
-                $stmt = mysqli_stmt_init($conn);
-                if (!mysqli_stmt_prepare($stmt, $sql)) {
+
+                // SQL文を実行する準備
+                $stmt = $dbh->prepare($sql);
+
+                if (!$stmt) {
                     echo "SQL文が無効です";
                 } else {
-                    mysqli_stmt_execute($stmt);
-                    $result = mysqli_stmt_get_result($stmt);
+                    // statementの実行
+                    $stmt->execute();
 
-                    while ($row = mysqli_fetch_assoc($result)) {
+                    while (true) {
+
+                        // 結果セットの取得
+                        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+                        if ($result === false) {
+                            break;
+                        }
                         echo '<div class="gallery-item">
-                        <a href="#" class="item-link">
-                            <div style="background-image: url(img/'.$row["imgFullNameGallery"].');" class="img-box"></div>
-                            <h2 class="heading-secondary">'.$row["titleGallery"].'</h2>
-                            <p>'.$row["descGallery"].'</p>
+                        <a href="" class="item-link">
+                            <div style="background-image: url(img/'.$result["imgFullNameGallery"].');" class="img-box"></div>
+                            <h2 class="heading-secondary">'.$result["titleGallery"].'</h2>
+                            <p>'.$result["descGallery"].'</p>
                         </a>
+                        <form method="POST" action="content.php">
+                        <input type="submit" value="詳しく">
+                        <input type="hidden" name="imgfullname" value="'.$result["imgFullNameGallery"].'">
+                        </form>
                     </div>';
                     }
                 }
