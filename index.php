@@ -72,9 +72,6 @@
                 ?>
             </section>
         </main>
-        <footer id="footer" class="footer">
-
-        </footer>
     </div>
 </body>
 </html>

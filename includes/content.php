@@ -45,9 +45,6 @@ $title = $_POST['title'];
             ?>
             </div>
         </main>
-        <footer id="footer" class="footer">
-
-        </footer>
     </div>
 </body>
 </html>
