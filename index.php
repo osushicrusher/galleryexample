@@ -9,17 +9,11 @@
     <link rel="stylesheet" href="./css/style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>のらねこフォト</title>
 </head>
 <body>
     <div class="wrapper">
-        <header id="header" class="header">
-            <h1 class="heading-primary">のらねこ</h1>
-            <ul class="nav-lists">
-                <li class="nav-list">会員登録</li>
-                <li class="nav-list">ログイン</li>
-            </ul>    
-        </header>
+        <h1 class="heading-primary">のらねこフォト</h1>    
         <main>
         <?php
             if(isset($_SESSION['username'])) {
@@ -64,9 +58,12 @@
                             <h2 class="heading-secondary">'.$result["titleGallery"].'</h2>
                             <p>'.$result["descGallery"].'</p>
                         </a>
-                        <form method="POST" action="content.php">
-                        <input type="submit" value="詳しく">
+                        <form method="POST" action="includes/content.php" enctype="multipart/form-data">
+                        <p class="txt-center"><input type="submit" value="詳細"></p>
+                        <input type="hidden" name="id" value="'.$result["idGallery"].'">
                         <input type="hidden" name="imgfullname" value="'.$result["imgFullNameGallery"].'">
+                        <input type="hidden" name="title" value="'.$result["titleGallery"].'">
+                        <input type="hidden" name="desc" value="'.$result["descGallery"].'">
                         </form>
                     </div>';
                     }

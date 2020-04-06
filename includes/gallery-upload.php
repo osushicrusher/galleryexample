@@ -32,7 +32,7 @@
             if($fileError === 0) {
                 if ($fileSize < 2000000) {
                     $imageFullName = $newFileName . "." . uniqid("", true) . "." . $fileActualExt;
-                    $fileDestination = "img/" . $imageFullName;
+                    $fileDestination = "../img/" . $imageFullName;
 
                     // データベースへの接続
                     include_once "dbh.php";
