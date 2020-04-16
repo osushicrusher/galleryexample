@@ -69,7 +69,7 @@
                                 $stmt->bindValue(1, $imageTitle);
                                 $stmt->bindValue(2, $imageDesc);
                                 $stmt->bindValue(3, $imageFullName);
-                                $stmt->bindValue(4, (int)$setImageOrder, PDO::PARAM_INT);
+                                $stmt->bindValue(4, $setImageOrder);
 
                                 // statementの実行
                                 $stmt->execute();
