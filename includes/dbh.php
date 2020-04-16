@@ -1,11 +1,11 @@
 <?php
 
 // データソースネーム
-$dsn = 'mysql:dbname=galleryexample;host=localhost;charset=utf8';
+$dsn = 'mysql:dbname=j3hem_phpgallery_db;host=mysql21.onamae.ne.jp;charset=utf8';
 // ユーザーネーム
-$username = "root";
+$username = "j3hem_osushicrusher";
 // パスワード
-$password = "";
+$password = "yh100906!";
 // データベースハンドラ
 $dbh = new PDO(
     $dsn,
