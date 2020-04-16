@@ -1,5 +1,5 @@
 <?php
-    $_SESSION['username'] = "Admin"
+    $_SESSION['username'] = "j3hem_osushicrusher";
 ?>
 
 

@@ -117,7 +117,6 @@ input[type="submit"], input[type="button"] {
 }
 
 
-
 @media screen and (max-width: 767px) {
     .gallery-item:nth-child(2n+1) {
         margin-right: 2em;
@@ -146,7 +145,7 @@ input[type="submit"], input[type="button"] {
     }
 
     .img-box {
-        height: 180px;
+        height: 200px;
     }
 
     .content {
@@ -159,6 +158,9 @@ input[type="submit"], input[type="button"] {
         width: 50%;
     }
 
+    .content-desc {
+        height: 70%;
+    }
 }
 
 @media screen and (min-width: 1024px) {
@@ -172,7 +174,7 @@ input[type="submit"], input[type="button"] {
     }
 
     .img-box {
-        height: 200px;
+        height: 300px;
     }
 
     .content {
@@ -183,5 +185,4 @@ input[type="submit"], input[type="button"] {
         height: 480px;
         width: 40%;
     }
-
 }
