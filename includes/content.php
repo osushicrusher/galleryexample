@@ -21,8 +21,8 @@ $title = $_POST['title'];
         <main>
             <div class="content">
             <?php
-                echo '<div style="background-image: url(../img/'.$imageFullName.');" class="content-img-box"></div>
-                        <div class="content-desc">
+                echo '<div style="background-image: url(../img/'.$imageFullName.');" class="content__img-box"></div>
+                        <div class="content__desc-box">
                             <h2 class="">'.$title.'</h2>
                             <p>'.$desc.'</p>
                             <div class="btn-box">
