@@ -22,7 +22,7 @@ $title = $_POST['title'];
         <main>
             <div class="content txt-center">
             <?php
-                echo '<div style="background-image: url(../img/'.$imageFullName.');" class="content-img-box"></div>
+                echo '<div style="background-image: url(../img/'.$imageFullName.');" class="content__img-box"></div>
                     <div class="content-desc">
                         <form method="POST" action="edit-done.php">
                         <label id="editedtitle">名前</label>
